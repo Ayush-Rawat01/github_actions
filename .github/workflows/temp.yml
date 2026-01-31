@@ -1,6 +1,6 @@
 name: sample file
 on:
-  - push
+  workflow_dispatch
 
 env:
   PROJECT: CI-DEMO
