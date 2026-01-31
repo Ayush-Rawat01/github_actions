@@ -1,0 +1,17 @@
+name: github actions tutorial
+on : push
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "build started"
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "test running"
+  
