@@ -1,0 +1,21 @@
+name: sample file
+on:
+  - push
+
+env:
+  PROJECT: CI-DEMO
+
+jobs: 
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      STAGE: CI-TEST
+    
+    steps:
+      - name: display
+        run: |
+          echo "gloval env: $PROJECT"
+          echo "job env: $STAGE"
+
+
+      
