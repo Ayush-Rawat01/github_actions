@@ -1,0 +1,25 @@
+name: sample file
+on:
+  - push
+
+jobs: 
+  job:    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: display
+        uses: actions/checkout@v4
+
+      - name: python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+      
+      - name: display
+        run: |
+          echo "python version is : " 
+          python --version
+
+
+
+      
