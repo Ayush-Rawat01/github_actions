@@ -25,8 +25,8 @@ jobs:
     steps:
       - name: print summary
         run: |
-          echo "all jobs ran successfully"
-       
+          echo "all jobs ran successfully" >> $GITHUB_STEP_SUMMARY
+      
 
 
 
