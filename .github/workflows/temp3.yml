@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: display
+      - name: code checkout
         uses: actions/checkout@v4
 
       - name: python
@@ -19,6 +19,15 @@ jobs:
         run: |
           echo "python version is : " 
           python --version
+
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print summary
+        run: |
+          echo "all jobs ran successfully"
+       
+
 
 
 
