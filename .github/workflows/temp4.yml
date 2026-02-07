@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout ${{github.event.repository}}
-        uses: actions/checkout-retry@v4
+        uses: actions/checkout@v4
 
       - name: show all files
         run: |
