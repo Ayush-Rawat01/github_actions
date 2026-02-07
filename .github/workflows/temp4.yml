@@ -1,0 +1,14 @@
+name: my workflow
+on: push
+
+jobs:
+  display:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display names
+        run: |
+          echo "Runner name: $RUNNER_OS"
+          echo "Workflow name: $GITHUB_WORKFLOW"
+          echo "job name: $GITHUB_JOB"
+
+
