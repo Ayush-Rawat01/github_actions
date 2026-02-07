@@ -1,0 +1,61 @@
+name: python project
+on: [push, pull_request]
+
+env:
+  PROJECT: CI-PROJECT
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout ${{github.repository}}
+        uses: actions/checkout@v4
+      
+      - name: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+     
+      - name: display info
+        run: | 
+          echo "Project name is ${{env.PROJECT}}"
+          echo "python version is: ""
+          python --version
+      
+      - name: summary added
+        if: always()
+        run: |
+          echo "Project name is $PROJECT" >> $GITHUB_STEP_SUMMARY
+          echo "Job name is $GITHUB_JOB" >> $GITHUB_STEP_SUMMARY
+          echo "Build Completed" >> $GITHUB_STEP_SUMMARY
+     
+  test:
+    needs: build
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: [3.9, 3.11]
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: setup python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: ${{matrix.python}}
+     
+      - name: display info
+        run: |
+          echo "OS is: ${{matrix.os}}"
+          echo "python version is ${{matrix.python}}"
+
+      - name: job summary
+        run: |
+          echo "| OS | Python | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|----|--------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| $OS_NAME | $PYTHON_VER | ✅ |" >> $GITHUB_STEP_SUMMARY
+      
+
+
+
+      
+
+  
