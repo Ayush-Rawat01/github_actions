@@ -19,7 +19,7 @@ jobs:
       - name: display info
         run: | 
           echo "Project name is ${{env.PROJECT}}"
-          echo "python version is: ""
+          echo "python version is: "
           python --version
       
       - name: summary added
