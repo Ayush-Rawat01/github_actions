@@ -11,6 +11,6 @@ jobs:
       - name: show all files
         run: |
           ls 
-          echo "total files are: " ls | wc -l
+          echo "total files are: " ls | wc -l 
           
 
