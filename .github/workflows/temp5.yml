@@ -51,7 +51,7 @@ jobs:
         run: |
           echo "| OS | Python | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|----|--------|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| $OS_NAME | $PYTHON_VER | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| ${{matrix.os}} | ${{matrix.python}}| ✅ |" >> $GITHUB_STEP_SUMMARY
       
 
 
